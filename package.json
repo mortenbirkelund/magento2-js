@@ -1,0 +1,76 @@
+{
+  "_from": "magento2-rest-client@0.0.2",
+  "_id": "magento2-rest-client@0.0.2",
+  "_inBundle": false,
+  "_integrity": "sha1-Km7yMMiBKahoC2Pq03k+p+mb9qQ=",
+  "_location": "/magento2-rest-client",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "magento2-rest-client@0.0.2",
+    "name": "magento2-rest-client",
+    "escapedName": "magento2-rest-client",
+    "rawSpec": "0.0.2",
+    "saveSpec": null,
+    "fetchSpec": "0.0.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/magento2-rest-client/-/magento2-rest-client-0.0.2.tgz",
+  "_shasum": "2a6ef230c88129a8680b63ead3793ea7e99bf6a4",
+  "_spec": "magento2-rest-client@0.0.2",
+  "_where": "/Users/pkarwatka/Documents/_PROJEKTY/mage2nosql/src",
+  "author": {
+    "name": "Marko Novak",
+    "email": "nouvak@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/nouvak/magento2-rest-client/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@types/node": "^16.4.3",
+    "humps": "^1.1.0",
+    "oauth-1.0a": "^2.2.6",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "winston": "^2.2.0"
+  },
+  "deprecated": false,
+  "description": "REST client for accessing Magento 2 functionality.",
+  "devDependencies": {
+    "@types/request-promise": "^4.1.48",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "chai": "^3.5.0",
+    "eslint": "^7.31.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "mocha": "^2.4.5",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
+  },
+  "homepage": "https://github.com/nouvak/magento2-rest-client#readme",
+  "keywords": [
+    "magento2",
+    "REST",
+    "API"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "types": "./types/index.d.ts",
+  "name": "magento2-rest-client",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nouvak/magento2-rest-client.git"
+  },
+  "scripts": {
+    "test": "test",
+    "lint": "eslint --fix ./src/**/*.ts",
+    "build": "tsc"
+  },
+  "version": "0.0.14"
+}
