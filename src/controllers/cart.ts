@@ -11,7 +11,7 @@ export class CartController {
     this.restClient = restClient;
   }
 
-  create(customerToken: string | undefined, customerId = null) {
+  async create(customerToken: string | undefined, customerId = null) {
     if (customerId) {
       return this.restClient.post('/customers/' + customerId + '/carts', {}, customerToken);
     } else {
@@ -22,7 +22,7 @@ export class CartController {
       }
     }
   }
-  update(customerToken: string | undefined, cartId: string, cartItem: any, adminRequest = false) {
+  async update(customerToken: string | undefined, cartId: string, cartItem: any, adminRequest = false) {
     if (adminRequest) {
       return this.restClient.post('/carts/' + cartId + '/items/', {
         cartItem: cartItem,
@@ -38,7 +38,7 @@ export class CartController {
     }
   }
 
-  applyCoupon(
+  async applyCoupon(
       customerToken: string | undefined,
       cartId: string,
       coupon: string,
@@ -54,7 +54,7 @@ export class CartController {
       }
     }
   }
-  deleteCoupon(customerToken: string | undefined, cartId: string, adminRequest = false) {
+  async deleteCoupon(customerToken: string | undefined, cartId: string, adminRequest = false) {
     if (adminRequest) {
       return this.restClient.delete('/carts/' + cartId + '/coupons');
     } else {
@@ -65,7 +65,7 @@ export class CartController {
       }
     }
   }
-  getCoupon(customerToken: string | undefined, cartId: string, adminRequest = false) {
+  async getCoupon(customerToken: string | undefined, cartId: string, adminRequest = false) {
     if (adminRequest) {
       return this.restClient.get('/carts/' + cartId + '/coupons');
     } else {
@@ -76,7 +76,7 @@ export class CartController {
       }
     }
   }
-  delete(
+  async delete(
       customerToken: string | undefined,
       cartId: string,
       cartItem: { item_id: string },
@@ -92,7 +92,7 @@ export class CartController {
       }
     }
   }
-  pull(customerToken: string | undefined, cartId: string, params: any, adminRequest = false) {
+  async pull(customerToken: string | undefined, cartId: string, params: any, adminRequest = false) {
     if (adminRequest) {
       return this.restClient.get('/carts/' + cartId + '/items/');
     } else {
@@ -103,7 +103,7 @@ export class CartController {
       }
     }
   }
-  totals(customerToken: string | undefined, cartId: string, params: any, adminRequest = false) {
+  async totals(customerToken: string | undefined, cartId: string, params: any, adminRequest = false) {
     if (adminRequest) {
       return this.restClient.get('/carts/' + cartId + '/totals/');
     } else {
@@ -115,7 +115,7 @@ export class CartController {
     }
   }
 
-  billingAddress(
+  async billingAddress(
       customerToken: string | undefined,
       cartId: string,
       body: any,
@@ -132,7 +132,7 @@ export class CartController {
     }
   }
 
-  shippingInformation(
+  async shippingInformation(
       customerToken: string | undefined,
       cartId: string,
       body: any,
@@ -149,7 +149,7 @@ export class CartController {
     }
   }
 
-  order(customerToken: string | undefined, cartId: string, body: any, adminRequest = false) {
+  async order(customerToken: string | undefined, cartId: string, body: any, adminRequest = false) {
     if (adminRequest) {
       return this.restClient.put('/carts/' + cartId + '/order', body);
     } else {
@@ -161,7 +161,7 @@ export class CartController {
     }
   }
 
-  paymentInformationAndOrder(
+  async paymentInformationAndOrder(
       customerToken: string | undefined,
       cartId: string,
       body: any,
@@ -189,14 +189,14 @@ export class CartController {
     }
   }
 
-  assign(cartId: string, userId: any, storeId = 0) {
+  async assign(cartId: string, userId: any, storeId = 0) {
     return this.restClient.put('/guest-carts/' + cartId, {
       customerId: userId,
       storeId: storeId,
     });
   }
 
-  shippingMethods(customerToken: string | undefined, cartId: string, address: any) {
+  async shippingMethods(customerToken: string | undefined, cartId: string, address: any) {
     if (customerToken && isNumeric(cartId)) {
       return this.restClient.post(
           '/carts/mine/estimate-shipping-methods',
@@ -210,7 +210,7 @@ export class CartController {
     }
   }
 
-  paymentMethods(customerToken: string | undefined, cartId: string) {
+  async paymentMethods(customerToken: string | undefined, cartId: string) {
     if (customerToken && isNumeric(cartId)) {
       return this.restClient.get('/carts/mine/payment-methods', customerToken);
     } else {
@@ -218,7 +218,7 @@ export class CartController {
     }
   }
 
-  collectTotals(customerToken: string | undefined, cartId: string, shippingMethod: any) {
+  async collectTotals(customerToken: string | undefined, cartId: string, shippingMethod: any) {
     if (customerToken && isNumeric(cartId)) {
       return this.restClient.put('/carts/mine/collect-totals', shippingMethod, customerToken);
     } else {
