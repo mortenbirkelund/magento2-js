@@ -18,13 +18,13 @@ import {StoreController} from './controllers/store';
 
 const MAGENTO_API_VERSION = 'V1';
 
-interface Magento2ClientOptions {
+export interface Magento2ClientOptions {
   url: String;
   consumerKey: String;
   consumerSecret: String;
   accessToken: String;
   accessTokenSecret: String;
-  version: String
+  version?: String
 }
 
 export class Magento2Client {

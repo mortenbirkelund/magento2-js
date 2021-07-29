@@ -1,10 +1,7 @@
-/* eslint-disable no-invalid-this */
 /* eslint-disable prefer-promise-reject-errors */
-
 import OAuth from 'oauth-1.0a';
 import request from 'request-promise';
-// const humps = require('humps');
-// const sprintf = require('util').format;
+import crypto from 'crypto';
 import {logger} from './helpers/log';
 
 export class RestClient {
@@ -15,7 +12,7 @@ export class RestClient {
   private token: OAuth.Token;
   constructor(options: {
     url: any;
-    version: any;
+    version?: any;
     consumerKey: any;
     consumerSecret: any;
     accessToken: any;
@@ -25,13 +22,19 @@ export class RestClient {
 
     this.serverUrl = options.url;
     this.apiVersion = options.version;
-    // eslint-disable-next-line new-cap
+
     this.oauth = new OAuth({
       consumer: {
         key: options.consumerKey,
         secret: options.consumerSecret,
       },
       signature_method: 'HMAC-SHA1',
+      hash_function(base_string, key) {
+        return crypto
+            .createHmac('sha1', key)
+            .update(base_string)
+            .digest('base64');
+      },
     });
     this.token = {
       key: options.accessToken,
@@ -39,22 +42,21 @@ export class RestClient {
     };
   }
 
-  async apiCall(request_data: any, request_token?: any, customHeaders?: any) {
-    /* eslint no-undef: off*/
+  async apiCall(request_data: any, request_token = '', customHeaders = {}) {
     return request(
         {
           url: request_data.url,
           method: request_data.method,
           headers: {
             ...(request_token ?
-            {Authorization: 'Bearer ' + request_token} :
+            {Authorization: 'Bearer ' + this.token.key} :
             this.oauth.toHeader(this.oauth.authorize(request_data, this.token))),
             ...customHeaders,
           },
           json: true,
           body: request_data.body,
         },
-        (error: any, response: any, body: any) => {
+        (error, response: any, body) => {
           if (error) {
             logger.error('Error occured: ' + error);
             return;
@@ -81,7 +83,7 @@ export class RestClient {
     });
   }
 
-  async httpCallSucceeded(response: { statusCode: number }) {
+  httpCallSucceeded(response: { statusCode: number }) {
     return response.statusCode >= 200 && response.statusCode < 300;
   }
 
@@ -113,11 +115,16 @@ export class RestClient {
     return this.apiCall(request_data, request_token);
   }
 
-  async createUrl(resourceUrl: string) {
+  createUrl(resourceUrl: string) {
     return this.serverUrl + '/' + this.apiVersion + resourceUrl;
   }
 
-  async post(resourceUrl: any, data?: any, request_token?: String, customHeaders?: Object) {
+  async post(
+      resourceUrl: any,
+      data?: any,
+      request_token?: string,
+      customHeaders?: Object,
+  ) {
     const request_data = {
       url: this.createUrl(resourceUrl),
       method: 'POST',
@@ -126,7 +133,7 @@ export class RestClient {
     return this.apiCall(request_data, request_token, customHeaders);
   }
 
-  async put(resourceUrl: any, data?: any, request_token?: String) {
+  async put(resourceUrl: any, data?: any, request_token?: string) {
     const request_data = {
       url: this.createUrl(resourceUrl),
       method: 'PUT',

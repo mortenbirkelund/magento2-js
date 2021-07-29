@@ -45,11 +45,11 @@ export class CustomerController {
     return this.restClient.post('/customers/resetPassword', resetPasswordData);
   }
 
-  async update(userData: { body: any; token: String | undefined; }) {
+  async update(userData: { body: any; token: string; }) {
     return this.restClient.put('/customers/me', userData.body, userData.token);
   }
 
-  async changePassword(passwordData: { body: any; token: String | undefined; }) {
+  async changePassword(passwordData: { body: any; token: string; }) {
     return this.restClient.put('/customers/me/password', passwordData.body, passwordData.token);
   }
 }

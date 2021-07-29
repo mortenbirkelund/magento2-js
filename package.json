@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@types/node": "^16.4.3",
+    "crypto": "^1.0.1",
     "humps": "^1.1.0",
     "oauth-1.0a": "^2.2.6",
     "request": "^2.88.2",
@@ -42,6 +43,7 @@
   "scripts": {
     "test": "test",
     "lint": "eslint --fix ./src/**/*.ts",
-    "build": "tsc"
+    "build:ts": "tsc",
+    "prepare": "build:ts"
   }
 }
