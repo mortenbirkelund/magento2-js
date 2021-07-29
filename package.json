@@ -44,6 +44,6 @@
     "test": "test",
     "lint": "eslint --fix ./src/**/*.ts",
     "build:ts": "tsc",
-    "prepare": "npm run build:ts"
+    "postinstall": "npm run build:ts"
   }
 }
