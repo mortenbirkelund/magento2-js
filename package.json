@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:brunocordioli072/magento2-api.git"
+    "url": "git@github.com:brunocordioli072/magento2-js.git"
   },
   "keywords": [
     "magento2",
@@ -17,7 +17,7 @@
     "email": "brunocordioli072@gmail.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/brunocordioli072/magento2-api",
+  "homepage": "https://github.com/brunocordioli072/magento2-js",
   "scripts": {
     "test": "test",
     "lint": "eslint --fix ./src/**/*.ts",
