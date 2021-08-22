@@ -1,4 +1,4 @@
-# magento2-api
+# magento2-js
 
 [![Version](https://status.david-dm.org/gh/brunocordioli072/magento2-api.svg)](https://david-dm.org/brunocordioli072/magento2-api)
 
