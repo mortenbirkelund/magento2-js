@@ -1,11 +1,11 @@
 {
-  "name": "magento2-rest",
+  "name": "magento2-api",
   "version": "1.0.0",
-  "description": "REST client for accessing Magento 2 functionality.",
+  "description": "A Node.JS module, which provides an object oriented wrapper for the Magento v2 Rest API.",
   "main": "./lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:brunocordioli072/magento2-rest.git"
+    "url": "git@github.com:brunocordioli072/magento2-api.git"
   },
   "keywords": [
     "magento2",
@@ -15,6 +15,14 @@
   "author": {
     "name": "Bruno Cordioli",
     "email": "brunocordioli072@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/brunocordioli072/magento2-api",
+  "scripts": {
+    "test": "test",
+    "lint": "eslint --fix ./src/**/*.ts",
+    "build:ts": "tsc",
+    "postinstall": "npm run build:ts"
   },
   "dependencies": {
     "@types/node": "^16.4.3",
@@ -37,13 +45,5 @@
     "mocha": "^2.4.5",
     "prettier": "^2.3.2",
     "typescript": "^4.3.5"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/brunocordioli072/magento2-rest",
-  "scripts": {
-    "test": "test",
-    "lint": "eslint --fix ./src/**/*.ts",
-    "build:ts": "tsc",
-    "postinstall": "npm run build:ts"
   }
 }

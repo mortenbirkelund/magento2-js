@@ -1,23 +1,52 @@
-# Magento2 REST client
+# magento2-api
 
-This Node.js library enables JavaScript applications to communicate with Magento2 sites using their REST API.
-This module based on the magento2-rest-client module created by Alessandro Ronchi (2019).
+[![Downloads](https://img.shields.io/npm/dt/youtube-api.svg)](https://www.npmjs.com/package/magento2-api)
 
-**NOTE: the library is not finished yet! Only a subset of Magento2 API is currently implemented.**
+> A Node.JS module, which provides an object oriented wrapper for the Magento v2 Rest API.
 
-## Installation
 
-The library can be installed using the Npm package manager:
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## :cloud: Installation
+
+```sh
+# Using npm
+npm install --save magento2-api
+
+# Using yarn
+yarn add magento2-api
 ```
-    npm install --save github:brunocordioli072/magento2-rest
-```
 
-## Usage
 
-The code sample below shows the usage of the library:
 
-```javascript
+
+
+
+
+
+
+
+
+
+
+## :clipboard: Example
+
+
+
+```js
 const {Magento2Client} = require('magento2-rest-client');
 
 const options = {
@@ -30,9 +59,30 @@ const options = {
 const client = Magento2Client(options);
 
 const stores = await client.stores.list();
-
 ```
 
-## Credit
 
-This Repository is an independent fork of https://github.com/vuestorefront/magento2-rest-client created by Alessandro Ronchi (2019).
+
+
+
+
+
+
+
+
+
+
+
+
+
+## :scroll: License
+
+[MIT][license] © [Bruno Cordioli][website]
+
+
+
+
+
+
+[license]: /LICENSE
+[website]: https://www.linkedin.com/in/bruno-cordioli-machado-4b2a47180/
