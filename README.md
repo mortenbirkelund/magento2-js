@@ -1,6 +1,6 @@
 # magento2-api
 
-[![Downloads](https://img.shields.io/npm/dt/youtube-api.svg)](https://www.npmjs.com/package/magento2-api)
+[![Version](https://status.david-dm.org/gh/brunocordioli072/magento2-api.svg)](https://david-dm.org/brunocordioli072/magento2-api)
 
 > A Node.JS module, which provides an object oriented wrapper for the Magento v2 Rest API.
 
