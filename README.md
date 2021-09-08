@@ -24,10 +24,10 @@
 
 ```sh
 # Using npm
-npm install --save magento2-api
+npm install --save magento2-js
 
 # Using yarn
-yarn add magento2-api
+yarn add magento2-js
 ```
 
 
@@ -47,7 +47,7 @@ yarn add magento2-api
 
 
 ```js
-const {Magento2Client} = require('magento2-rest-client');
+const {Magento2Client} = require('magento2-js');
 
 const options = {
   url: 'http://www.test.com/index.php/rest',
