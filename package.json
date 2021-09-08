@@ -1,6 +1,6 @@
 {
   "name": "magento2-js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Node.JS module, which provides an object oriented wrapper for the Magento v2 Rest API.",
   "main": "./lib/index.js",
   "repository": {
