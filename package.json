@@ -3,6 +3,7 @@
   "version": "1.0.6",
   "description": "A Node.JS module, which provides an object oriented wrapper for the Magento v2 Rest API.",
   "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:brunocordioli072/magento2-js.git"
