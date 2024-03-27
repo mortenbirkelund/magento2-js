@@ -28,10 +28,10 @@ export class RestClient {
         key: options.consumerKey,
         secret: options.consumerSecret,
       },
-      signature_method: 'HMAC-SHA1',
+      signature_method: 'HMAC-SHA256',
       hash_function(base_string, key) {
         return crypto
-            .createHmac('sha1', key)
+            .createHmac('sha256', key)
             .update(base_string)
             .digest('base64');
       },
